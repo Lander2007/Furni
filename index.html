@@ -24,7 +24,7 @@
 
   <body class="bg-gradient-to-br from-[#3d6b5a] via-[#2d5a4a] to-[#1a3a2e] text-white">
     <div class="min-h-screen">
-      <header class="w-full border-b border-white/5 backdrop-blur-sm">
+      <header class="w-full border-b border-white/5 backdrop-blur-sm relative z-50">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <nav class="flex items-center justify-between py-4 sm:py-6">
             <a href="#" class="text-2xl sm:text-3xl font-extrabold tracking-tight">
@@ -122,17 +122,19 @@
         const menuToggle = document.getElementById('menuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
 
-        menuToggle.addEventListener('click', () => {
-          mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close menu when a link is clicked
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-          link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
+        if (menuToggle && mobileMenu) {
+          menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
           });
-        });
+
+          // Close menu when a link is clicked
+          const mobileLinks = mobileMenu.querySelectorAll('a');
+          mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+              mobileMenu.classList.add('hidden');
+            });
+          });
+        }
       </script>
 
       <main style="margin-top: 60px;" class="sm:mt-80px md:mt-100px">
@@ -651,4 +653,22 @@
 
             
   </body>
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      // Close menu when a link is clicked
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+    }
+  </script>
 </html>
