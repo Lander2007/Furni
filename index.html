@@ -25,13 +25,13 @@
   <body class="bg-gradient-to-br from-[#3d6b5a] via-[#2d5a4a] to-[#1a3a2e] text-white">
     <div class="min-h-screen">
       <header class="w-full border-b border-white/5 backdrop-blur-sm">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-          <nav class="flex items-center justify-between py-6">
-            <a href="#" class="text-3xl font-extrabold tracking-tight">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <nav class="flex items-center justify-between py-4 sm:py-6">
+            <a href="#" class="text-2xl sm:text-3xl font-extrabold tracking-tight">
               Furni<span class="text-white/50">.</span>
             </a>
 
-            <ul class="hidden items-center gap-10 text-sm font-medium text-white/70 md:flex">
+            <ul id="navMenu" class="hidden md:flex items-center gap-6 sm:gap-8 lg:gap-10 text-xs sm:text-sm font-medium text-white/70">
               <li>
                 <a href="#" class="relative text-white transition-colors hover:text-white group">
                   Home
@@ -45,7 +45,19 @@
               <li><a href="#" class="relative transition-colors hover:text-white group">Contact us<span class="absolute -bottom-2 left-0 h-1 w-full rounded-full bg-yellow-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span></a></li>
             </ul>
 
-            <div class="flex items-center gap-6 text-white/80">
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden fixed top-16 left-0 right-0 bg-[#2d5a4a] border-b border-white/5 md:hidden z-40">
+              <ul class="flex flex-col items-start gap-0 text-sm font-medium text-white/70 p-4">
+                <li class="w-full"><a href="#" class="block py-3 px-4 text-white hover:bg-white/10 rounded">Home</a></li>
+                <li class="w-full"><a href="#" class="block py-3 px-4 hover:text-white hover:bg-white/10 rounded">Shop</a></li>
+                <li class="w-full"><a href="about.html" class="block py-3 px-4 hover:text-white hover:bg-white/10 rounded">About us</a></li>
+                <li class="w-full"><a href="services.html" class="block py-3 px-4 hover:text-white hover:bg-white/10 rounded">Services</a></li>
+                <li class="w-full"><a href="#" class="block py-3 px-4 hover:text-white hover:bg-white/10 rounded">Blog</a></li>
+                <li class="w-full"><a href="#" class="block py-3 px-4 hover:text-white hover:bg-white/10 rounded">Contact us</a></li>
+              </ul>
+            </div>
+
+            <div class="flex items-center gap-4 sm:gap-6 text-white/80">
               <button
                 class="grid h-10 w-10 place-items-center rounded-full transition-colors hover:text-white hover:bg-white/10"
                 aria-label="Account"
@@ -85,6 +97,7 @@
               </button>
 
               <button
+                id="menuToggle"
                 class="ml-1 grid h-10 w-10 place-items-center rounded-full transition-colors hover:text-white hover:bg-white/10 md:hidden"
                 aria-label="Menu"
                 title="Menu"
@@ -103,33 +116,49 @@
             </div>
           </nav>
         </div>
-        
       </header>
 
-      <main style="margin-top: 100px;" >
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-          <section class="relative grid items-center gap-12 pb-20 pt-16 md:grid-cols-2 md:pt-24 lg:gap-16 lg:pt-32">
-            <div class="max-w-2xl space-y-8">
-              <h1 class="text-5xl font-extrabold leading-tight md:text-6xl lg:text-7xl">
+      <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuToggle.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu when a link is clicked
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+          });
+        });
+      </script>
+
+      <main style="margin-top: 60px;" class="sm:mt-80px md:mt-100px">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <section class="relative grid items-center gap-8 sm:gap-12 pb-12 sm:pb-20 pt-8 sm:pt-16 md:grid-cols-2 md:pt-24 lg:gap-16 lg:pt-32">
+            <div class="max-w-2xl space-y-6 sm:space-y-8">
+              <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight">
                 Modern Interio Design
                Studio
               </h1>
 
-              <p class="max-w-md text-base leading-7 text-white/60">
+              <p class="max-w-md text-sm sm:text-base leading-6 sm:leading-7 text-white/60">
                 Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet
                 velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
               </p>
 
-              <div class="flex flex-wrap items-center gap-4 pt-4">
+              <div class="flex flex-wrap items-center gap-3 sm:gap-4 pt-4">
                 <a
                   href="#"
-                  class="inline-flex items-center justify-center rounded-full bg-yellow-400 px-8 py-3 text-base font-semibold text-gray-900 shadow-lg shadow-yellow-400/30 transition-all hover:bg-yellow-300 hover:shadow-yellow-400/50 active:scale-95"
+                  class="inline-flex items-center justify-center rounded-full bg-yellow-400 px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-gray-900 shadow-lg shadow-yellow-400/30 transition-all hover:bg-yellow-300 hover:shadow-yellow-400/50 active:scale-95"
                 >
                   Shop Now
                 </a>
                 <a
                   href="#"
-                  class="inline-flex items-center justify-center rounded-full border-2 border-white/40 px-8 py-3 text-base font-semibold text-white transition-all hover:border-white/60 hover:bg-white/5"
+                  class="inline-flex items-center justify-center rounded-full border-2 border-white/40 px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white transition-all hover:border-white/60 hover:bg-white/5"
                 >
                   Explore
                 </a>
@@ -140,7 +169,7 @@
              
               </div>
 
-              <div  class="relative mx-auto w-full max-w-md md:max-w-lg">
+              <div  class="relative mx-auto w-full max-w-xs sm:max-w-md md:max-w-lg">
                <img
 
                   src="./couch.png"
@@ -160,127 +189,127 @@
    
 
       <!-- Why Choose Us Section -->
-      <section class="py-20 md:py-28 bg-[#e8e4d9]">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-          <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
-            <div class="space-y-6">
-              <h2 class="text-4xl md:text-5xl font-extrabold leading-tight text-gray-800">
+      <section class="py-12 sm:py-20 md:py-28 bg-[#e8e4d9]">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="grid md:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-start">
+            <div class="space-y-4 sm:space-y-6">
+              <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-gray-800">
                 Crafted with<br />
                 excellent<br />
                 material.
               </h2>
 
-              <p class="text-gray-600 text-base leading-7 max-w-md">
+              <p class="text-gray-600 text-sm sm:text-base leading-6 sm:leading-7 max-w-md">
                 Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. 
                 Aliquam vulputate velit imperdiet dolor tempor tristique.
               </p>
 
               <a
                 href="#"
-                class="inline-flex items-center justify-center rounded-full bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 text-base font-semibold transition-colors"
+                class="inline-flex items-center justify-center rounded-full bg-gray-900 hover:bg-gray-800 text-white px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-semibold transition-colors"
               >
                 Explore
               </a>
             </div>
 
-            <div class="grid grid-cols-3 gap-6">
-              <div class="space-y-4 text-center">
-                <div class="bg-white rounded-lg p-6 h-64 flex items-center justify-center overflow-hidden shadow-sm">
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-6">
+              <div class="space-y-3 sm:space-y-4 text-center">
+                <div class="bg-white rounded-lg p-3 sm:p-6 h-40 sm:h-64 flex items-center justify-center overflow-hidden shadow-sm">
                   <img 
                     src="./product-1.png" 
                     alt="Nordic Chair" 
                     class="w-full h-full object-contain hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <h3 class="font-semibold text-gray-800">Nordic Chair</h3>
-                <p class="text-gray-700 font-bold">$50.00</p>
+                <h3 class="font-semibold text-gray-800 text-sm sm:text-base">Nordic Chair</h3>
+                <p class="text-gray-700 font-bold text-sm sm:text-base">$50.00</p>
               </div>
 
-              <div class="space-y-4 text-center">
-                <div class="bg-white rounded-lg p-6 h-64 flex items-center justify-center overflow-hidden shadow-sm">
+              <div class="space-y-3 sm:space-y-4 text-center">
+                <div class="bg-white rounded-lg p-3 sm:p-6 h-40 sm:h-64 flex items-center justify-center overflow-hidden shadow-sm">
                   <img 
                     src="./product-2.png" 
                     alt="Kruzo Aero Chair" 
                     class="w-full h-full object-contain hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <h3 class="font-semibold text-gray-800">Kruzo Aero Chair</h3>
-                <p class="text-gray-700 font-bold">$78.00</p>
+                <h3 class="font-semibold text-gray-800 text-sm sm:text-base">Kruzo Aero Chair</h3>
+                <p class="text-gray-700 font-bold text-sm sm:text-base">$78.00</p>
               </div>
 
-              <div class="space-y-4 text-center">
-                <div class="bg-white rounded-lg p-6 h-64 flex items-center justify-center overflow-hidden shadow-sm">
+              <div class="space-y-3 sm:space-y-4 text-center">
+                <div class="bg-white rounded-lg p-3 sm:p-6 h-40 sm:h-64 flex items-center justify-center overflow-hidden shadow-sm">
                   <img 
                     src="./product-3.png" 
                     alt="Ergonomic Chair" 
                     class="w-full h-full object-contain hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <h3 class="font-semibold text-gray-800">Ergonomic Chair</h3>
-                <p class="text-gray-700 font-bold">$43.00</p>
+                <h3 class="font-semibold text-gray-800 text-sm sm:text-base">Ergonomic Chair</h3>
+                <p class="text-gray-700 font-bold text-sm sm:text-base">$43.00</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="py-20 md:py-28 bg-[#f5f3ee] relative overflow-hidden">
-        <div class="absolute top-0 right-0 opacity-20 pointer-events-none">
+      <section class="py-12 sm:py-20 md:py-28 bg-[#f5f3ee] relative overflow-hidden">
+        <div class="absolute top-0 right-0 opacity-20 pointer-events-none hidden sm:block">
           <div>
          <img style="position: relative; right: 750px;" src="./dots-yellow.svg" alt="">
           </div>
         </div>
 
-        <div class="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-          <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div class="space-y-8">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="grid md:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
+            <div class="space-y-6 sm:space-y-8">
               <div>
-                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-800 mb-3 sm:mb-4"></h2>
                   Why Choose Us
                 </h2>
-                <p class="text-gray-600 text-base leading-7">
+                <p class="text-gray-600 text-sm sm:text-base leading-6 sm:leading-7">
                   Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
                 </p>
               </div>
 
-              <div class="grid grid-cols-2 gap-8">
-                <div class="space-y-3">
-                  <div class="w-12 h-10 rounded-lg flex items-center justify-center">
+              <div class="grid grid-cols-2 gap-4 sm:gap-8">
+                <div class="space-y-2 sm:space-y-3">
+                  <div class="w-10 sm:w-12 h-8 sm:h-10 rounded-lg flex items-center justify-center">
                     <img src="./truck.svg" alt="">
                   </div>
-                  <h3 class="font-semibold text-gray-800">Fast & Free Shipping</h3>
-                  <p class="text-gray-600 text-sm">Donec vitae odio quis nisl dapibus malesuada.</p>
+                  <h3 class="font-semibold text-gray-800 text-sm sm:text-base">Fast & Free Shipping</h3>
+                  <p class="text-gray-600 text-xs sm:text-sm">Donec vitae odio quis nisl dapibus malesuada.</p>
                 </div>
 
-                <div class="space-y-3">
-                  <div class="w-12 h-12  rounded-lg flex items-center justify-center">
+                <div class="space-y-2 sm:space-y-3">
+                  <div class="w-10 sm:w-12 h-8 sm:h-12 rounded-lg flex items-center justify-center">
                 
                     <img src="./bag.svg" alt="">
                   </div>
-                  <h3 class="font-semibold text-gray-800">Easy to Return</h3>
-                  <p class="text-gray-600 text-sm">Donec vitae odio quis nisl dapibus malesuada.</p>
+                  <h3 class="font-semibold text-gray-800 text-sm sm:text-base">Easy to Return</h3>
+                  <p class="text-gray-600 text-xs sm:text-sm">Donec vitae odio quis nisl dapibus malesuada.</p>
                 </div>
 
-                <div class="space-y-3">
-                  <div class="w-12 h-12  rounded-lg flex items-center justify-center">
+                <div class="space-y-2 sm:space-y-3">
+                  <div class="w-10 sm:w-12 h-8 sm:h-12 rounded-lg flex items-center justify-center">
                    <img src="./support.svg" alt="">
                   </div>
-                  <h3 class="font-semibold text-gray-800">24/7 Support</h3>
-                  <p class="text-gray-600 text-sm">Donec vitae odio quis nisl dapibus malesuada.</p>
+                  <h3 class="font-semibold text-gray-800 text-sm sm:text-base">24/7 Support</h3>
+                  <p class="text-gray-600 text-xs sm:text-sm">Donec vitae odio quis nisl dapibus malesuada.</p>
                 </div>
 
-                <div class="space-y-3">
-                  <div class="w-12 h-12  rounded-lg flex items-center justify-center">
+                <div class="space-y-2 sm:space-y-3">
+                  <div class="w-10 sm:w-12 h-8 sm:h-12 rounded-lg flex items-center justify-center">
                    <img src="./return.svg" alt="">
                   </div>
-                  <h3 class="font-semibold text-gray-800">Secure Payments</h3>
-                  <p class="text-gray-600 text-sm">Donec vitae odio quis nisl dapibus malesuada.</p>
+                  <h3 class="font-semibold text-gray-800 text-sm sm:text-base">Secure Payments</h3>
+                  <p class="text-gray-600 text-xs sm:text-sm">Donec vitae odio quis nisl dapibus malesuada.</p>
                 </div>
               </div>
             </div>
 
             <div class="relative">
-              <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl overflow-hidden shadow-xl h-96 flex items-center justify-center">
+              <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl overflow-hidden shadow-xl h-64 sm:h-96 flex items-center justify-center">
                 <img 
                   src="./why-choose-us-img.jpg" 
                   alt="Why Choose Us" 
@@ -293,13 +322,13 @@
       </section>
  
 
-      <section class="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-6">
+      <section class="py-12 sm:py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12 sm:mb-16">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-800 mb-4 sm:mb-6">
               Testimonials
             </h2>
-            <p class="text-gray-600 text-base max-w-2xl mx-auto leading-7">
+            <p class="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto leading-6 sm:leading-7">
               Donec vitae odio quis nisl dapibus malesuada. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
             </p>
           </div>
@@ -351,20 +380,20 @@
 
             <button 
               onclick="prevTestimonial()" 
-              class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 md:-translate-x-12 w-12 h-12 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors"
+              class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 sm:-translate-x-6 md:-translate-x-12 w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors"
               aria-label="Previous testimonial"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-gray-700">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 sm:w-6 h-5 sm:h-6 text-gray-700">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
               </svg>
             </button>
 
             <button 
               onclick="nextTestimonial()" 
-              class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 md:translate-x-12 w-12 h-12 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors"
+              class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 sm:translate-x-6 md:translate-x-12 w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors"
               aria-label="Next testimonial"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-gray-700">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 sm:w-6 h-5 sm:h-6 text-gray-700">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5L15.75 12l-7.5 7.5" />
               </svg>
             </button>
@@ -417,18 +446,18 @@
 
         updateCarousel();
       </script>
-      <section class="py-20 md:py-28 bg-[#f5f3ee]">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-          <div class="flex items-center justify-between mb-12">
-            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800">
+      <section class="py-12 sm:py-20 md:py-28 bg-[#f5f3ee]">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 sm:mb-12 gap-4">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-800">
               Recent Blog
             </h2>
-            <a href="#" class="text-gray-600 hover:text-gray-800 font-semibold transition-colors">
+            <a href="#" class="text-gray-600 hover:text-gray-800 font-semibold text-sm sm:text-base transition-colors">
               View All Posts
             </a>
           </div>
 
-          <div class="grid md:grid-cols-3 gap-8">
+          <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8">
             <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
               <div class="h-64 overflow-hidden bg-gray-200">
                 <img 
@@ -437,50 +466,53 @@
                   class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <div class="p-6">
-                <h3 class="text-lg font-semibold text-gray-800 mb-3 hover:text-gray-600 transition-colors cursor-pointer">
+              <div class="p-4 sm:p-6">
+                <h3 class="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3 hover:text-gray-600 transition-colors cursor-pointer">
                   First Time Home Owner Ideas
                 </h3>
-                <div class="flex items-center gap-4 text-sm text-gray-500">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-500">
                   <span>By Kristin Watson</span>
+                  <span class="hidden sm:inline">•</span>
                   <span>Dec 19, 2021</span>
                 </div>
               </div>
             </div>
 
             <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-              <div class="h-64 overflow-hidden bg-gray-200">
+              <div class="h-40 sm:h-64 overflow-hidden bg-gray-200">
                 <img 
                   src="./post-2.jpg" 
                   alt="How To Keep Your Furniture Clean" 
                   class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <div class="p-6">
-                <h3 class="text-lg font-semibold text-gray-800 mb-3 hover:text-gray-600 transition-colors cursor-pointer">
+              <div class="p-4 sm:p-6">
+                <h3 class="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3 hover:text-gray-600 transition-colors cursor-pointer">
                   How To Keep Your Furniture Clean
                 </h3>
-                <div class="flex items-center gap-4 text-sm text-gray-500">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-500">
                   <span>By Robert Fox</span>
+                  <span class="hidden sm:inline">•</span>
                   <span>Dec 15, 2021</span>
                 </div>
               </div>
             </div>
 
             <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-              <div class="h-64 overflow-hidden bg-gray-200">
+              <div class="h-40 sm:h-64 overflow-hidden bg-gray-200">
                 <img 
                   src="./post-3.jpg" 
                   alt="Small Space Furniture Apartment Ideas" 
                   class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <div class="p-6">
-                <h3 class="text-lg font-semibold text-gray-800 mb-3 hover:text-gray-600 transition-colors cursor-pointer">
+              <div class="p-4 sm:p-6">
+                <h3 class="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3 hover:text-gray-600 transition-colors cursor-pointer">
                   Small Space Furniture Apartment Ideas
                 </h3>
-                <div class="flex items-center gap-4 text-sm text-gray-500">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-500">
                   <span>By Kristin Watson</span>
+                  <span class="hidden sm:inline">•</span>
                   <span>Dec 12, 2021</span>
                 </div>
               </div>
@@ -492,28 +524,28 @@
       <!-- Footer -->
       <footer class="bg-white">
         <!-- Newsletter Section -->
-        <div class="bg-gradient-to-r from-gray-50 to-white py-16 md:py-20">
-          <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="bg-gradient-to-r from-gray-50 to-white py-12 sm:py-16 md:py-20">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
               <!-- Left Content -->
               <div>
-                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Subscribe to Newsletter</h3>
-                <form class="flex gap-3">
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-4">Subscribe to Newsletter</h3>
+                <form class="flex flex-col sm:flex-row gap-2 sm:gap-3">
                   <input 
                     type="text" 
                     placeholder="Enter your name" 
-                    class="flex-1 px-4 py-3 bg-gray-100 rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400"
+                    class="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 bg-gray-100 rounded-lg text-gray-800 placeholder-gray-500 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-gray-400"
                   />
                   <input 
                     type="email" 
                     placeholder="Enter your email" 
-                    class="flex-1 px-4 py-3 bg-gray-100 rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400"
+                    class="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 bg-gray-100 rounded-lg text-gray-800 placeholder-gray-500 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-gray-400"
                   />
                   <button 
                     type="submit" 
-                    class="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-semibold transition-colors"
+                    class="px-4 sm:px-6 py-2.5 sm:py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-semibold transition-colors text-sm sm:text-base"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 sm:w-5 h-4 sm:h-5">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                     </svg>
                   </button>
@@ -524,41 +556,41 @@
                 <img 
                   src="./sofa.png" 
                   alt="Couch" 
-                  class="w-48 h-48 object-contain"
+                  class="w-32 sm:w-40 md:w-48 h-32 sm:h-40 md:h-48 object-contain"
                 />
               </div>
             </div>
           </div>
         </div>
 
-        <div class="border-t border-gray-200 py-16">
-          <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="grid md:grid-cols-5 gap-8 mb-12">
+        <div class="border-t border-gray-200 py-12 sm:py-16">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid sm:grid-cols-2 md:grid-cols-5 gap-6 sm:gap-8 mb-8 sm:mb-12">
               <div class="md:col-span-1">
-                <h2 class="text-2xl font-extrabold text-gray-800 mb-4">
+                <h2 class="text-xl sm:text-2xl font-extrabold text-gray-800 mb-3 sm:mb-4">
                   Furni<span class="text-gray-400">.</span>
                 </h2>
-                <p class="text-gray-600 text-sm leading-6 mb-6">
+                <p class="text-gray-600 text-xs sm:text-sm leading-5 sm:leading-6 mb-4 sm:mb-6">
                   Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
                 </p>
-                <div class="flex gap-4">
-                  <a href="#" class="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-4 h-4 text-gray-700">
+                <div class="flex gap-3 sm:gap-4">
+                  <a href="#" class="w-7 sm:w-8 h-7 sm:h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-3 sm:w-4 h-3 sm:h-4 text-gray-700">
                       <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                     </svg>
                   </a>
-                  <a href="#" class="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-4 h-4 text-gray-700">
+                  <a href="#" class="w-7 sm:w-8 h-7 sm:h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-3 sm:w-4 h-3 sm:h-4 text-gray-700">
                       <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7"/>
                     </svg>
                   </a>
-                  <a href="#" class="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-4 h-4 text-gray-700">
+                  <a href="#" class="w-7 sm:w-8 h-7 sm:h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-3 sm:w-4 h-3 sm:h-4 text-gray-700">
                       <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm4.441 16.892c-2.102.144-6.784.144-8.883 0C5.282 16.736 5.017 15.622 5 12c.017-3.629.285-4.736 2.558-4.892 2.099-.144 6.782-.144 8.883 0C18.718 7.264 18.982 8.378 19 12c-.018 3.629-.285 4.736-2.559 4.892zM9.5 15.5v-7l6 3.5-6 3.5z"/>
                     </svg>
                   </a>
-                  <a href="#" class="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-4 h-4 text-gray-700">
+                  <a href="#" class="w-7 sm:w-8 h-7 sm:h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-3 sm:w-4 h-3 sm:h-4 text-gray-700">
                       <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zM16 16h-1.993v-2.881c0-1.881-1.002-2.374-1.679-2.374-.77 0-1.427.515-1.66 1.002h-.023v-.857h-1.686c.022.471 0 5.006 0 5.006h1.686v-2.769c0-.149.011-.297.053-.404.117-.291.381-.594.826-.594.619 0 .866.471.866 1.163V16z"/>
                     </svg>
                   </a>
@@ -566,8 +598,8 @@
               </div>
 
               <div>
-                <h4 class="font-semibold text-gray-800 mb-4">About us</h4>
-                <ul class="space-y-3 text-sm text-gray-600">
+                <h4 class="font-semibold text-gray-800 mb-3 sm:mb-4 text-sm sm:text-base">About us</h4>
+                <ul class="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600">
                   <li><a href="#" class="hover:text-gray-800 transition-colors">About us</a></li>
                   <li><a href="#" class="hover:text-gray-800 transition-colors">Services</a></li>
                   <li><a href="#" class="hover:text-gray-800 transition-colors">Blog</a></li>
@@ -576,8 +608,8 @@
               </div>
 
               <div>
-                <h4 class="font-semibold text-gray-800 mb-4">Support</h4>
-                <ul class="space-y-3 text-sm text-gray-600">
+                <h4 class="font-semibold text-gray-800 mb-3 sm:mb-4 text-sm sm:text-base">Support</h4>
+                <ul class="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600">
                   <li><a href="#" class="hover:text-gray-800 transition-colors">Knowledge base</a></li>
                   <li><a href="#" class="hover:text-gray-800 transition-colors">Live chat</a></li>
                   <li><a href="#" class="hover:text-gray-800 transition-colors">Phone</a></li>
@@ -586,8 +618,8 @@
               </div>
 
               <div>
-                <h4 class="font-semibold text-gray-800 mb-4">Shop</h4>
-                <ul class="space-y-3 text-sm text-gray-600">
+                <h4 class="font-semibold text-gray-800 mb-3 sm:mb-4 text-sm sm:text-base">Shop</h4>
+                <ul class="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600">
                   <li><a href="#" class="hover:text-gray-800 transition-colors">Our Shop</a></li>
                   <li><a href="#" class="hover:text-gray-800 transition-colors">Pricing</a></li>
                   <li><a href="#" class="hover:text-gray-800 transition-colors">Lookscatalog</a></li>
@@ -596,19 +628,19 @@
               </div>
 
               <div>
-                <h4 class="font-semibold text-gray-800 mb-4">Products</h4>
-                <ul class="space-y-3 text-sm text-gray-600">
+                <h4 class="font-semibold text-gray-800 mb-3 sm:mb-4 text-sm sm:text-base">Products</h4>
+                <ul class="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600">
                   <li><a href="#" class="hover:text-gray-800 transition-colors">Nordic Chair</a></li>
                   <li><a href="#" class="hover:text-gray-800 transition-colors">Kruzo Aero</a></li>
                   <li><a href="#" class="hover:text-gray-800 transition-colors">Ergonomic Chair</a></li>
                 </ul>
               </div>
             </div>
-            <div class="border-t border-gray-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-600">
+            <div class="border-t border-gray-200 pt-6 sm:pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs sm:text-sm text-gray-600">
               <p>
                 Copyright ©2023. All Rights Reserved. — Designed with love by <a href="#" class="text-gray-800 hover:underline">Ofspace</a> Distributed by <a href="#" class="text-gray-800 hover:underline">ThemeWagon</a>
               </p>
-              <div class="flex gap-6">
+              <div class="flex gap-4 sm:gap-6">
                 <a href="#" class="hover:text-gray-800 transition-colors">Terms & Conditions</a>
                 <a href="#" class="hover:text-gray-800 transition-colors">Privacy Policy</a>
               </div>
@@ -616,6 +648,7 @@
           </div>
         </div>
       </footer>
-    </div>
+
+            
   </body>
 </html>
