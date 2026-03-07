@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          sans-serif;
+      }
+    </style>
+</head>
+<body>
+      <div class="min-h-screen">
+      <header class="w-full border-b border-white/5 backdrop-blur-sm relative z-50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <nav class="flex items-center justify-between py-4 sm:py-6">
+            <a href="#" class="text-2xl sm:text-3xl font-extrabold tracking-tight">
+              Furni<span class="text-white/50">.</span>
+            </a>
+
+            <ul id="navMenu" class="hidden md:flex items-center gap-6 sm:gap-8 lg:gap-10 text-xs sm:text-sm font-medium text-black/70">
+              <li>
+                <li><a href="index.html" class="relative transition-colors  group">Home<span class="absolute -bottom-2 left-0 h-1 w-full rounded-full bg-yellow-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span></a></li>
+              </li>
+              <li><a href="#" class="relative text-black transition-colors hover:text-yellow group">Shop<span class="absolute -bottom-2 left-0 h-1 w-full rounded-full bg-yellow-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+             <span class="absolute -bottom-2 left-0 h-1 w-9 rounded-full bg-yellow-400"></span></a></li>
+              <li><a href="about.html" class="relative transition-colors  group">About us<span class="absolute -bottom-2 left-0 h-1 w-full rounded-full bg-yellow-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span></a></li>
+              <li><a href="services.html" class="relative transition-colors  group">Services<span class="absolute -bottom-2 left-0 h-1 w-full rounded-full bg-yellow-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span></a></li>
+              <li><a href="blog.html" class="relative transition-colors  group">Blog<span class="absolute -bottom-2 left-0 h-1 w-full rounded-full bg-yellow-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span></a></li>
+              <li><a href="#" class="relative transition-colors  group">Contact us<span class="absolute -bottom-2 left-0 h-1 w-full rounded-full bg-yellow-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span></a></li>
+            </ul>
+
+            <div id="mobileMenu" class="hidden fixed top-16 left-0 right-0 bg-white border-b border-gray-200 md:hidden z-40">
+              <ul class="flex flex-col items-start gap-0 text-sm font-medium text-black/70 p-4">
+                <li class="w-full"><a href="index.html" class="block py-3 px-4 text-black hover:bg-gray-100 rounded">Home</a></li>
+                <li class="w-full"><a href="#" class="block py-3 px-4 text-black hover:bg-gray-100 rounded">Shop</a></li>
+                <li class="w-full"><a href="about.html" class="block py-3 px-4 text-black hover:bg-gray-100 rounded">About us</a></li>
+                <li class="w-full"><a href="services.html" class="block py-3 px-4 text-black hover:bg-gray-100 rounded">Services</a></li>
+                <li class="w-full"><a href="blog.html"block py-3 px-4 text-black hover:bg-gray-100 rounded">Blog</a></li>
+                <li class="w-full"><a href="#" class="block py-3 px-4 text-black hover:bg-gray-100 rounded">Contact us</a></li>
+              </ul>
+            </div>
+
+            <div class="flex items-center gap-4 sm:gap-6 text-black/80">
+              <button
+                class="grid h-10 w-10 place-items-center rounded-full transition-colors hover:text-black hover:bg-gray-200"
+                aria-label="Account"
+                title="Account"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="h-5 w-5"
+                >
+                  <path d="M20 21a8 8 0 0 0-16 0"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </button>
+
+              <button
+                class="grid h-10 w-10 place-items-center rounded-full transition-colors hover:text-black hover:bg-gray-200"
+                aria-label="Cart"
+                title="Cart"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="h-5 w-5"
+                >
+                  <path d="M6 6h15l-1.5 9h-12z"></path>
+                  <path d="M6 6 5 3H2"></path>
+                  <circle cx="9" cy="20" r="1"></circle>
+                  <circle cx="18" cy="20" r="1"></circle>
+                </svg>
+              </button>
+
+              <button
+                id="menuToggle"
+                class="ml-1 grid h-10 w-10 place-items-center rounded-full transition-colors hover:text-black hover:bg-gray-200 md:hidden"
+                aria-label="Menu"
+                title="Menu"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="h-6 w-6"
+                >
+                  <path d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+              </button>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (menuToggle && mobileMenu) {
+          menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+          });
+
+          const mobileLinks = mobileMenu.querySelectorAll('a');
+          mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+              mobileMenu.classList.add('hidden');
+            });
+          });
+        }
+      </script>
+    <section class="py-12 sm:py-20 md:py-28 bg-[#e8e4d9]">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="grid md:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-start">
+            <div class="space-y-4 sm:space-y-6">
+              <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-gray-800">
+                Crafted with<br />
+                excellent<br />
+                material.
+              </h2>
+
+              <p class="text-gray-600 text-sm sm:text-base leading-6 sm:leading-7 max-w-md">
+                Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. 
+                Aliquam vulputate velit imperdiet dolor tempor tristique.
+              </p>
+
+              <a
+                href="#"
+                class="inline-flex items-center justify-center rounded-full bg-gray-900 hover:bg-gray-800 text-white px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-semibold transition-colors"
+              >
+                Explore
+              </a>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-6">
+              <div class="space-y-3 sm:space-y-4 text-center">
+                <div class="bg-white rounded-lg p-3 sm:p-6 h-40 sm:h-64 flex items-center justify-center overflow-hidden shadow-sm">
+                  <img 
+                    src="./product-1.png" 
+                    alt="Nordic Chair" 
+                    class="w-full h-full object-contain hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <h3 class="font-semibold text-gray-800 text-sm sm:text-base">Nordic Chair</h3>
+                <p class="text-gray-700 font-bold text-sm sm:text-base">$50.00</p>
+              </div>
+
+              <div class="space-y-3 sm:space-y-4 text-center">
+                <div class="bg-white rounded-lg p-3 sm:p-6 h-40 sm:h-64 flex items-center justify-center overflow-hidden shadow-sm">
+                  <img 
+                    src="./product-2.png" 
+                    alt="Kruzo Aero Chair" 
+                    class="w-full h-full object-contain hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <h3 class="font-semibold text-gray-800 text-sm sm:text-base">Kruzo Aero Chair</h3>
+                <p class="text-gray-700 font-bold text-sm sm:text-base">$78.00</p>
+              </div>
+
+              <div class="space-y-3 sm:space-y-4 text-center">
+                <div class="bg-white rounded-lg p-3 sm:p-6 h-40 sm:h-64 flex items-center justify-center overflow-hidden shadow-sm">
+                  <img 
+                    src="./product-3.png" 
+                    alt="Ergonomic Chair" 
+                    class="w-full h-full object-contain hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <h3 class="font-semibold text-gray-800 text-sm sm:text-base">Ergonomic Chair</h3>
+                <p class="text-gray-700 font-bold text-sm sm:text-base">$43.00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+   <div class="border-t border-gray-200 py-12 sm:py-16">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid sm:grid-cols-2 md:grid-cols-5 gap-6 sm:gap-8 mb-8 sm:mb-12">
+              <div class="md:col-span-1">
+                <h2 class="text-xl sm:text-2xl font-extrabold text-gray-800 mb-3 sm:mb-4">
+                  Furni<span class="text-gray-400">.</span>
+                </h2>
+                <p class="text-gray-600 text-xs sm:text-sm leading-5 sm:leading-6 mb-4 sm:mb-6">
+                  Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
+                </p>
+                <div class="flex gap-3 sm:gap-4">
+                  <a href="#" class="w-7 sm:w-8 h-7 sm:h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-3 sm:w-4 h-3 sm:h-4 text-gray-700">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                  </a>
+                  <a href="#" class="w-7 sm:w-8 h-7 sm:h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-3 sm:w-4 h-3 sm:h-4 text-gray-700">
+                      <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7"/>
+                    </svg>
+                  </a>
+                  <a href="#" class="w-7 sm:w-8 h-7 sm:h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-3 sm:w-4 h-3 sm:h-4 text-gray-700">
+                      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm4.441 16.892c-2.102.144-6.784.144-8.883 0C5.282 16.736 5.017 15.622 5 12c.017-3.629.285-4.736 2.558-4.892 2.099-.144 6.782-.144 8.883 0C18.718 7.264 18.982 8.378 19 12c-.018 3.629-.285 4.736-2.559 4.892zM9.5 15.5v-7l6 3.5-6 3.5z"/>
+                    </svg>
+                  </a>
+                  <a href="#" class="w-7 sm:w-8 h-7 sm:h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-3 sm:w-4 h-3 sm:h-4 text-gray-700">
+                      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zM16 16h-1.993v-2.881c0-1.881-1.002-2.374-1.679-2.374-.77 0-1.427.515-1.66 1.002h-.023v-.857h-1.686c.022.471 0 5.006 0 5.006h1.686v-2.769c0-.149.011-.297.053-.404.117-.291.381-.594.826-.594.619 0 .866.471.866 1.163V16z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 sm:mb-4 text-sm sm:text-base">About us</h4>
+                <ul class="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600">
+                  <li><a href="#" class="hover:text-gray-800 transition-colors">About us</a></li>
+                  <li><a href="#" class="hover:text-gray-800 transition-colors">Services</a></li>
+                  <li><a href="#" class="hover:text-gray-800 transition-colors">Blog</a></li>
+                  <li><a href="#" class="hover:text-gray-800 transition-colors">Contact us</a></li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 sm:mb-4 text-sm sm:text-base">Support</h4>
+                <ul class="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600">
+                  <li><a href="#" class="hover:text-gray-800 transition-colors">Knowledge base</a></li>
+                  <li><a href="#" class="hover:text-gray-800 transition-colors">Live chat</a></li>
+                  <li><a href="#" class="hover:text-gray-800 transition-colors">Phone</a></li>
+                  <li><a href="#" class="hover:text-gray-800 transition-colors">Contact us</a></li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 sm:mb-4 text-sm sm:text-base">Shop</h4>
+                <ul class="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600">
+                  <li><a href="#" class="hover:text-gray-800 transition-colors">Our Shop</a></li>
+                  <li><a href="#" class="hover:text-gray-800 transition-colors">Pricing</a></li>
+                  <li><a href="#" class="hover:text-gray-800 transition-colors">Lookscatalog</a></li>
+                  <li><a href="#" class="hover:text-gray-800 transition-colors">Testimonials</a></li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-3 sm:mb-4 text-sm sm:text-base">Products</h4>
+                <ul class="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600">
+                  <li><a href="#" class="hover:text-gray-800 transition-colors">Nordic Chair</a></li>
+                  <li><a href="#" class="hover:text-gray-800 transition-colors">Kruzo Aero</a></li>
+                  <li><a href="#" class="hover:text-gray-800 transition-colors">Ergonomic Chair</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="border-t border-gray-200 pt-6 sm:pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs sm:text-sm text-gray-600">
+              <p>
+                Copyright ©2023. All Rights Reserved. — Designed with love by <a href="#" class="text-gray-800 hover:underline">Ofspace</a> Distributed by <a href="#" class="text-gray-800 hover:underline">ThemeWagon</a>
+              </p>
+              <div class="flex gap-4 sm:gap-6">
+                <a href="#" class="hover:text-gray-800 transition-colors">Terms & Conditions</a>
+                <a href="#" class="hover:text-gray-800 transition-colors">Privacy Policy</a>
+              </div>
+            </div>
+          </div>
+        </div>
+</body>
+</html>
